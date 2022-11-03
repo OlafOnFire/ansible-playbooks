@@ -1,0 +1,35 @@
+---
+- name: "Chocolatey"
+  hosts: windows
+  tasks:
+    - name: Install chocolatey
+      win_chocolatey:
+          name:
+           - chocolatey
+           - chocolatey-core.extension
+          state: present
+              
+    - name: Install notepadplusplus version 6.6
+      win_chocolatey:
+          name: notepadplusplus
+          # version: '7.6.3'
+          pinned: yes
+          state: present
+    - name: Install vsc
+      win_chocolatey:
+          name: vscode
+          pinned: yes
+          state: present
+    # - name: Install virtualbox
+    #   win_chocolatey:
+    #       name: virtualbox
+    #       pinned: yes
+    #       state: present
+    #       become: yes
+    #       become_user: Vagrant
+    #       become_method: runas
+    # - name: Using a different voice and a start sound
+    #   win_say:
+    #   start_sound_path: C:\Windows\Media\ding.wav
+    #   msg: Warning, deployment commencing in 5 minutes, please log out.
+    #   voice: Microsoft Hazel Desktop
