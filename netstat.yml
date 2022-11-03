@@ -1,0 +1,6 @@
+---
+  - name: Execute Commands on Windows Host
+    hosts: windows
+    tasks:
+      - name: Run Netstat
+        win_command: netstat -e

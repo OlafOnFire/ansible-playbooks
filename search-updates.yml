@@ -1,0 +1,9 @@
+---
+  - name: Search Updates and Log Results
+    hosts: windows
+    tasks:
+      - name: Run Netstat
+        ansible.windows.win_updates:
+            category_names: '*'
+            state: searched
+            log_path: C:\update_list.txt
